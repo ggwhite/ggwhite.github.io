@@ -1,0 +1,174 @@
+@base-font-size: 14px;
+@print-font-size: 10px;
+
+.page-header {
+	margin-top: 40px;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+}
+
+#mini-info {
+	font-size: @base-font-size;
+	float: right;
+	text-align: right;
+}
+
+#head-thumbnail {
+	width: 70%;
+	margin-top: 70px;
+	margin-bottom: 50px;
+}
+
+#skill-block {
+	ul {
+		padding-left: 10px;
+		li {
+			font-size: 120%;
+			font-weight: bolder;
+			margin-bottom: 30px;
+			ul {
+				li {
+					font-size: 100%;
+				    font-weight: initial;
+				    margin-bottom: 5px;
+				}
+			}
+		}
+	}
+}
+
+.sub-title {
+	margin: 20px 0 10px;
+}
+
+#exp {
+	& > ul {
+		list-style-type: none;
+		padding-left: 20px;
+	}
+	
+	.exp-job {
+		border-bottom: 1px solid #eee;
+		padding: 10px;
+		
+		&:first-child {
+			padding-top: 0;
+		}
+		
+		&:last-child {
+			padding-bottom: 0;
+			border-bottom: 0;
+		}
+		
+		.row {
+			font-size: 110%;
+			font-weight: bolder;
+			div {
+				padding: 0 5px;
+			}
+		}
+		
+		ul {
+			padding-left: 20px;
+		    margin-top: 5px;
+		}
+	}
+}
+
+#edu {
+	& > ul {
+		list-style-type: none;
+		padding-left: 20px;
+		
+		li {
+			div:first-child {
+				font-weight: bolder;
+			} 
+		}
+	}
+	ul {
+		padding-left: 20px;
+	}
+}
+
+@media print {
+	body {
+		font-size: @print-font-size;
+	}
+	
+	#mini-info {
+		font-size: @print-font-size * 0.8;
+	}
+	
+	h1 {
+		font-size: @print-font-size * 2;
+	}
+	
+	h2 {
+		font-size: @print-font-size * 1.8;
+	}
+	
+	h3 {
+		font-size: @print-font-size * 1.4;
+	}
+	
+	h4 {
+		font-size: @print-font-size * 1.2;
+	}
+	
+	.page-header {
+		margin-top: 25px;
+		margin-bottom: 5px;
+	}
+	
+	#head-thumbnail {
+		margin-top: 60px;
+		margin-bottom: 30px;
+	}
+	
+	#skill-block {
+		width: 27%;
+		padding-left: 10px;
+		padding-right: 3px;
+		
+		ul {
+			padding-left: 10px;
+			li {
+				margin-bottom: 10px;
+				ul {
+					li {
+					    margin-bottom: 2px;
+					}
+				}
+			}
+		}
+	}
+	
+	#content {
+		width: 73%;
+		padding-left: 3px;
+		padding-right: 10px;
+	}
+	
+	.sub-title {
+		margin: 5px 0 5px;
+	}
+	
+	#exp {
+		.exp-job {
+			padding: 3px;
+			
+			&:first-child {
+				padding-top: 0;
+			}
+			
+			&:last-child {
+				padding-bottom: 0;
+			}
+		}
+	}
+	
+	a[href]:after {
+		content: none !important;
+	}
+}
