@@ -5,7 +5,9 @@
 * Possessing all-round analysis and programming skills.
 * Methodical yet creative and having a proven ability for effective problem-solving.
 
-# Senior Backend Engineer 
+# Experience
+
+## Senior Backend Engineer 
 ### WistronITS Corp. Stationed: Taiwan Mobile
 ### Sup. 2016 - Present
 ## Led 2 engineers, Developed Backend server
@@ -26,18 +28,18 @@ Developed Vue.js components for the CMS team, increased development efficienc
 * Vue Components Demo
 * Tomcat Server
 
-# Software Engineer 
+## Software Engineer 
 ### Kangda Info Corp.
 ### Jul. 2015 - Aug. 2016
 ## Developed project for MOST(Ministry of Science and Technology, R.O.C.) Department
 
-# Software Engineer
+## Software Engineer
 ### BenQ Corp.
 ### Nov. 2013 - Feb. 2015
 ## Developed 『Qmobi』, POC of E-Commerce (PHP, Wordpress, mysql)
 ## Developed 『eBookTaiwan』(now: digiPages) (javascript, jQuery)
 
-# Software Engineer
+## Software Engineer
 ### Open-Life Corp.
 ### Nov. 2011 - Oct. 2013
 ## Developed and maintained CMS (PHP, Yii, PostgresSQL)
@@ -52,5 +54,6 @@ Developed Vue.js components for the CMS team, increased development efficienc
 ### Bachelor of Electrical Engineering, Sep. 2006 - Jun 2010
 ### National Kaohsiung University of Science and Technology(NKUST), Taiwan
 
-Linkedin: https://www.linkedin.com/in/white-chang/
-Github: https://github.com/ggwhite
+
+[Linkedin](https://www.linkedin.com/in/white-chang)
+[Github](https://github.com/ggwhite)
