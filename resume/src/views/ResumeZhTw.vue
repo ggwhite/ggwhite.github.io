@@ -1,12 +1,10 @@
 <template>
   <div class="resume container">
-    <nav>
-      <a :href="pdf" class="download"></a>
-    </nav>
     
     <main-head
       :name="profile.name" 
-      :position="profile.position">
+      :position="profile.position"
+      :pdf="pdf">
     </main-head>
 
     <profile
@@ -213,6 +211,7 @@ export default {
 <style lang="less" scoped>
 
 .resume {
+  position: relative;
   display: grid;
   grid-template-areas: "head profile"
                        ". profile"
@@ -250,30 +249,6 @@ export default {
 
     &:last-child {
       border-bottom: 0;
-    }
-  }
-
-  nav {
-    position: absolute;
-    right: 20px;
-    
-    @media print {
-      display: none;
-    }
-  }
-
-  .download {
-    padding: 5px;
-    &:before {
-      content: "";
-      background-image: url("../assets/icon-download.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-      margin-bottom: -4px;
     }
   }
 
