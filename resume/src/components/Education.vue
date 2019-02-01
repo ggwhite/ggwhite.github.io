@@ -1,10 +1,8 @@
 <template>
   <div class="education">
-    <div class="degree">
-      <b>{{ degree }}</b>
-      <b>{{ start }} - {{ end }}</b>
-    </div>
-    <b>{{ school }}</b>
+    <div class="degree">{{ degree }}</div>
+    <div class="period">{{ start }} - {{ end }}</div>
+    {{ school }}
   </div>
 </template>
 
@@ -30,10 +28,24 @@ export default {
 
 .education {
 
-  .degree {
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-areas: "degree period"
+                         "school school";
+    grid-template-columns: 1fr 200px;
+  }
 
-    b {
-      margin-right: 20px;
+  .degree {
+    font-weight: bold;
+  }
+
+  .period {
+    font-weight: bold;
+    margin-bottom: 5px;
+
+    @media (min-width: 768px) {
+      grid-area: period;
+      text-align: right;
     }
   }
 

@@ -1,8 +1,8 @@
 <template>
   <div class="experience">
     <div class="position">{{ position }}</div>
-    <div class="period">{{ start }} - {{ end }}</div>
     <div class="company">{{ company }}</div>
+    <div class="period">{{ start }} - {{ end }}</div>
     <description :description="description"></description>
   </div>
 </template>
@@ -29,33 +29,51 @@ export default {
 
 .experience {
 
-  display: grid;
-  grid-template-areas: "position period"
-                       "company company"
-                       "desc desc";
-  grid-template-columns: 1fr 200px;
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-areas: "position period"
+                        "company company"
+                        "desc desc";
+    grid-template-columns: 1fr 200px;
+  }
 
   .position {
     font-size: 120%;
     font-weight: bold;
     text-align: left;
-    grid-area: position;
+
+    @media (min-width: 768px) {
+      // font-size: 130%;
+      grid-area: position;
+    }
+
   }
 
   .company {
-    grid-area: company;
+    
+    @media (min-width: 768px) {
+      grid-area: company;
+    }
+    
     font-weight: bold;
   }
 
   .period {
-    grid-area: period;
     font-weight: bold;
-    text-align: right;
+    text-align: left;
+
+    @media (min-width: 768px) {
+      grid-area: period;
+      text-align: right;
+    }
+
   }
 
   .description {
-    grid-area: desc;
-    margin-top: 10px;
+    @media (min-width: 768px) {
+      grid-area: desc;
+    }
+    margin-top: 5px;
   }
 
 }

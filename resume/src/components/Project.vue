@@ -1,9 +1,7 @@
 <template>
   <div class="project">
-    <div class="name">
-      <label>{{ name }}</label>
-      <label>{{ start }} - {{ end }}</label>
-    </div>
+    <div class="name">{{ name }}</div>
+    <div class="period">{{ start }} - {{ end }}</div>
     <description :description="description"></description>
   </div>
 </template>
@@ -29,12 +27,34 @@ export default {
 
 .project {
 
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-areas: "name period"
+                         "desc desc";
+    grid-template-columns: 1fr 200px;
+  }
+
   .name {
     font-weight: bold;
-    text-align: left;
 
-    label {
-      margin-right: 20px;
+    @media (min-width: 768px) {
+      grid-area: name;
+    }
+  }
+
+  .period {
+    font-weight: bold;
+    margin-bottom: 5px;
+
+    @media (min-width: 768px) {
+      grid-area: period;
+      text-align: right;
+    }
+  }
+
+  .description {
+    @media (min-width: 768px) {
+      grid-area: desc;
     }
   }
 

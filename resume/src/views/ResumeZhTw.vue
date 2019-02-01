@@ -1,21 +1,10 @@
 <template>
   <div class="resume container">
-    
     <main-head
       :name="profile.name" 
       :position="profile.position"
       :pdf="pdf">
     </main-head>
-
-    <profile
-      :photo="profile.photo"
-      :email="profile.email" 
-      :phone="profile.phone" 
-      :github="profile.github"
-      :linkedin="profile.linkedin"
-      :programming="profile.programming"
-      :tools="profile.tools">
-    </profile>
 
     <section>
       <p class="title">
@@ -65,6 +54,16 @@
         :end="edu.end">
       </education>
     </section>
+
+    <profile
+      :photo="profile.photo"
+      :email="profile.email" 
+      :phone="profile.phone" 
+      :github="profile.github"
+      :linkedin="profile.linkedin"
+      :programming="profile.programming"
+      :tools="profile.tools">
+    </profile>
 
   </div>
 </template>
@@ -185,7 +184,7 @@ export default {
       project: [
         {
           id: "project-1",
-          name: "沐欣照護 後台管理系統 (Content Management System)",
+          name: "沐欣照護 後台管理系統",
           start: "2013/11",
           end: "2015/03",
           description: [
@@ -212,43 +211,76 @@ export default {
 
 .resume {
   position: relative;
-  display: grid;
-  grid-template-areas: "head profile"
-                       ". profile"
-                       ". profile"
-                       ". profile"
-                       ". profile"
-                       ". profile"
-                       ". profile"
-                       ". profile"
-                       ". profile"
-                       ". profile"
-                       ". profile";
-  
-  grid-template-columns: 1fr 270px;
 
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-areas: "head profile"
+                         ". profile"
+                         ". profile"
+                         ". profile"
+                         ". profile"
+                         ". profile"
+                         ". profile"
+                         ". profile"
+                         ". profile"
+                         ". profile"
+                         ". profile";
+    grid-auto-columns: 1fr 265px;
+  }
+  
   .title {
-    font-size: 120%;
     border-bottom: 1px solid #AAA;
-    margin-bottom: 10px;
-    width: calc(100% - 30px);
+    margin-bottom: 5px;
+    font-size: 110%;
+
+    @media (min-width: 768px) {
+      font-size: 120%;
+      margin-bottom: 10px;
+      width: calc(100% - 30px);
+    }
   }
 
   .main-head {
     margin-bottom: 10px;
-    grid-area: head;
+
+    @media (min-width: 768px) {
+      grid-area: head;
+    }
   }
 
   .profile {
-    grid-area: profile;
+
+    padding: 0;
+
+    @media (min-width: 768px) {
+      grid-area: profile;
+      padding: 10px;
+    }
   }
 
   .experience {
-    margin: 0 40px 10px 10px;
     border-bottom: 2px dashed #AAA;
+    margin: 10px;
+
+    @media (min-width: 768px) {
+      margin: 0 40px 10px 10px;
+    }
 
     &:last-child {
       border-bottom: 0;
+    }
+
+  }
+
+  .project {
+    @media (min-width: 768px) {
+      margin: 0 40px 0 10px;
+    }
+  }
+
+  .education {
+    @media (min-width: 768px) {
+      margin: 0 40px 0 10px;
     }
   }
 

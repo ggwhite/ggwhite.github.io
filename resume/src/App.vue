@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <div id="links">
-        <router-link to="/">Home</router-link>
-        <router-link to="/resume/en">Resume(English)</router-link>
-        <router-link to="/resume/zh-tw">Resume(Chinese)</router-link>
+    <div id="nav" class="container-fluid">
+      <div class="menu">
+        <a class="fa fa-bars" @click="toggleMenu"></a>
+        <section v-show="menu_display" class="mobile">
+          <router-link v-for="(text, url) in menu" :key="url" :to="url">{{ text }}</router-link>
+        </section>
+        <section class="desktop">
+          <router-link v-for="(text, url) in menu" :key="url" :to="url">{{ text }}</router-link>
+        </section>
       </div>
       <div id="social">
-        <a :href="_email" class="email"></a>
-        <a :href="github" class="github" target="_blank"></a>
-        <a :href="linkedin" class="linkedin" target="_blank"></a>
+        <a :href="_email" class="fa fa-envelope"></a>
+        <a :href="github" class="fa fa-github-square" target="_blank"></a>
+        <a :href="linkedin" class="fa fa-linkedin-square" target="_blank"></a>
       </div>
     </div>
     <router-view/>
@@ -24,7 +28,20 @@ export default {
       email: "eddy6868@msn.com",
       github: "https://github.com/ggwhite",
       linkedin: "https://linkedin.com/in/white-chang",
+      menu_display: false,
+      menu: {
+        "/": "Home",
+        "/resume/en": "Resume(English)",
+        "/resume/zh-tw": "Resume(Chinese)"
+      }
     }
+  },
+  methods: {
+    toggleMenu: function(){
+      console.log(this.menu_display)
+      this.menu_display = !this.menu_display
+      console.log(this.menu_display)
+    },
   },
   computed: {
     _email: function(){
@@ -36,9 +53,24 @@ export default {
 
 
 <style lang="less">
+@import '~font-awesome/css/font-awesome.min.css';
+
 
 body {
   margin: 0;
+  font-size: 0.8rem;
+  
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+a {
+  color: #555;
+  &:hover {
+    text-decoration: none;
+    color: #AAA;
+  }
 }
 
 #app {
@@ -51,6 +83,19 @@ body {
 
 #nav {
   position: relative;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  @media (min-width: 768px) {
+    height: 400px;
+    padding: 30px;
+    margin-bottom: 20px;
+  }
+
+  @media print {
+    display: none;
+  }
 
   &:after {
     content: "";
@@ -67,90 +112,101 @@ body {
     width: 100%;
     height: 100%;
   }
-  
-  height: 400px;
-  padding: 30px;
-  margin-bottom: 20px;
 
-  #links {
-    // display: none;
+  .menu {
+
+    display: inline-block;
+
+    @media (min-width: 768px) {
+
+    }
 
     a {
-      display: inline-block;
-      padding: 10px 15px;
-      font-weight: bold;
-      color: #555;
+      &.fa-bars {
+        font-size: 150%;
+        @media (min-width: 768px) {
+          display: none;
+        }  
+      }
+    }
 
-      &:hover {
-        padding: 7px 12px;
-        border: 3px solid;
-        text-decoration: none;
+    section {
+
+      &.mobile {
+        display: grid;
+        box-shadow: 0 2px 1px #AAA;
+        @media (min-width: 768px) {
+          display: none;
+        }
+
+        a {
+          border-bottom: 1px solid #AAA;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+
       }
 
-      &.router-link-exact-active {
-        color: #42b983;
+      &.desktop {
+        display: none;
+        @media (min-width: 768px) {
+          display: block;
+        }
       }
+
+      @media (max-width: 767px) {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        background-color: #FAFAFA;
+        width: 100%;
+        z-index: 999;
+      }
+
+      a {
+        padding: 10px;
+
+        @media (min-width: 768px) {
+          display: inline-block;
+          padding: 10px 15px;
+          font-weight: bold;
+        }
+
+        &:hover {
+          @media (min-width: 768px) {
+            padding: 7px 12px;
+            border: 3px solid;
+          }
+        }
+        &.router-link-exact-active {
+          color: #42b983;
+        }
+      }
+      
     }
   }
 
   #social {
-    background-color: #5de4a7;
-    margin: 0 auto;
-    padding: 10px;
-    border-radius: 30px;
-    display: inline-block;
-    position: absolute;
-    top: 35px;
-    right: 30px;
-  }
 
-  .email {
-    padding: 5px;
-    &:before {
-      content: "";
-      background-image: url("assets/icon-email.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-      margin-bottom: -4px;
+    float: right;
+    font-size: 130%;
+
+    @media (min-width: 768px) {
+      position: absolute;
+      bottom: 10px;
+      right: 30px;
+      font-size: 150%;
     }
-  }
 
-  .github {
-      padding: 5px;
-      &:before {
-        content: "";
-        background-image: url("assets/icon-github.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        margin-bottom: -4px;
+    a {
+      margin: 0 5px;
+      @media (min-width: 768px) {
+        margin: 0 10px;
       }
     }
 
-    .linkedin {
-      padding: 5px;
-      &:before {
-        content: "";
-        background-image: url("assets/icon-linkedin.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        margin-bottom: -4px;
-      }
-    }
-
-  @media print {
-    display: none;
   }
 
 }

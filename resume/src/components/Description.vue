@@ -30,8 +30,18 @@ export default {
 
 .description {
   
+  @media (min-width: 768px) {
+
+  }
+
   ul {
     margin-bottom: 0.5rem;
+    padding-left: 10px;
+    
+    @media (min-width: 768px) {
+      padding-left: 40px;
+    }
+
     li {
       margin-bottom: 5px;
     }

@@ -7,7 +7,11 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.6",
+    "@fortawesome/free-solid-svg-icons": "^5.4.1",
+    "@fortawesome/vue-fontawesome": "^0.1.1",
     "bootstrap-vue": "^2.0.0-rc.11",
+    "font-awesome": "^4.7.0",
     "vue": "^2.5.21",
     "vue-router": "^3.0.1"
   },
@@ -19,6 +23,7 @@
     "less-loader": "^4.1.0",
     "vue-cli-plugin-bootstrap": "^1.0.0-alpha.1",
     "vue-cli-plugin-bootstrap-vue": "^0.1.0",
+    "vue-cli-plugin-fontawesome": "^0.1.0",
     "vue-template-compiler": "^2.5.21"
   }
 }

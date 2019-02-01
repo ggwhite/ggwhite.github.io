@@ -9,10 +9,28 @@
     <p class="title">
       <b>Personal Info</b>
     </p>
-    <div class="phone">{{ phone }}</div>
-    <div class="email"><a :href="_email">{{ email }}</a></div>
-    <div class="github"><a :href="github" target="_blank">{{ github | url }}</a></div>
-    <div class="linkedin"><a :href="linkedin" target="_blank">{{ linkedin | url }}</a></div>
+    <div>
+      <span class="fa fa-phone-square"></span>
+      {{ phone }}
+    </div>
+    <div>
+      <a :href="_email">
+        <span class="fa fa-envelope"></span>
+        {{ email }}
+      </a>
+    </div>
+    <div>
+      <a :href="github" target="_blank">
+        <span class="fa fa-github-square"></span>
+        {{ github | url }}
+      </a>
+    </div>
+    <div>
+      <a :href="linkedin" target="_blank">
+        <span class="fa fa-linkedin-square"></span>
+        {{ linkedin | url }}
+      </a>
+    </div>
 
     <p class="title">
       <b>Programming</b>
@@ -69,6 +87,10 @@ export default {
 .profile {
     padding: 10px;
 
+    .fa {
+      margin-right: 10px;
+    }
+
     div {
       margin-bottom: 10px;
     }
@@ -84,8 +106,13 @@ export default {
     }
 
     .photo {
+      display: none;
       text-align: center;
       padding: 5px;
+
+      @media (min-width: 768px) {
+        display: block;
+      }
       
       div {
         width: 175px;
@@ -109,66 +136,6 @@ export default {
       border-bottom: 1px solid #AAA;
       margin-top: 20px;
       margin-bottom: 10px;
-    }
-
-    .phone {
-      padding: 5px;
-      &:before {
-        content: "";
-        background-image: url("../assets/icon-phone.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        margin-bottom: -4px;
-      }
-    }
-
-    .email {
-      padding: 5px;
-      &:before {
-        content: "";
-        background-image: url("../assets/icon-email.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        margin-bottom: -4px;
-      }
-    }
-
-    .github {
-      padding: 5px;
-      &:before {
-        content: "";
-        background-image: url("../assets/icon-github.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        margin-bottom: -4px;
-      }
-    }
-
-    .linkedin {
-      padding: 5px;
-      &:before {
-        content: "";
-        background-image: url("../assets/icon-linkedin.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        margin-bottom: -4px;
-      }
     }
 
     .lang {

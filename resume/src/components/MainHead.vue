@@ -2,7 +2,10 @@
   <div class="main-head">
     <b class="name">{{ name }}</b>
     <b class="position">{{ position }}</b>
-    <a :href="pdf" alt="Download PDF" class="download"></a>
+    <a :href="pdf" alt="Download PDF" class="download">
+      <span class="fa fa-download"></span>
+      PDF
+    </a>
   </div>
 </template>
 
@@ -20,39 +23,54 @@ export default {
 <style lang="less" scoped>
 
 .main-head {
-    b {
-      margin-right: 20px;
-    }
+  position: relative;
+  display: grid;
 
-    .name {
+  @media (min-width: 768px) {
+    display: block; 
+  }
+
+  b {
+    margin-right: 20px;
+  }
+
+  .name {
+    font-size: 150%;
+    font-weight: bold;
+    @media (min-width: 768px) {
       font-size: 300%;
-      font-weight: bold;
     }
+  }
 
-    .position {
+  .position {
+    font-size: 130%;
+    font-weight: bold;
+    color: #888;
+    @media (min-width: 768px) {
       font-size: 150%;
-      font-weight: bold;
-      color: #888;
+    }
+  }
+
+  .download {
+    display: none;
+    padding: 5px;
+
+    .fa {
+      margin-right: 5px;
     }
 
-    .download {
-      padding: 5px;
-      &:before {
-        content: "";
-        background-image: url("../assets/icon-download.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        margin-bottom: -4px;
-      }
-
-      @media print {
-        display: none;
-      }
+    @media print {
+      display: none;
     }
+
+    @media (min-width: 768px) {
+      display: block;
+      position: absolute;
+      right: 30px;
+      bottom: -40px;
+    }
+  }
+
 }
 
 </style>

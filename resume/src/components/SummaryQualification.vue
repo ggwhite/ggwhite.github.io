@@ -24,8 +24,14 @@ export default {
     text-align: left;
 
     ul {
-        margin-bottom: 0.5rem
+        margin-bottom: 0.5rem;
+        padding-left: 20px;
+        
+        @media (min-width: 768px) {
+
+        }
     }
+    
 }
 
 </style>
