@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <div class="photo">
+    <div class="photo" ref="photo" @click="togglePhoto">
       <div>
         <img :src="photo" />
       </div>
@@ -67,6 +67,11 @@ export default {
       programming: Object,
       tools: Object,
     },
+    data: function(){
+      return {
+        fullPhoto: false
+      }
+    },
     computed: {
       _email: function(){
         return "mailto:" + this.email
@@ -78,7 +83,18 @@ export default {
         val = val.replace("https://", "")
         return val
       }
-    }
+    },
+    methods: {
+      togglePhoto: function() {
+        var photo = this.$refs.photo
+        if (this.fullPhoto) {
+          photo.classList.remove("full")
+        } else {
+          photo.classList.add("full")
+        }
+        this.fullPhoto = !this.fullPhoto
+      }
+    },
 }
 </script>
 
@@ -106,9 +122,34 @@ export default {
     }
 
     .photo {
-      display: none;
+      // display: none;
       text-align: center;
       padding: 5px;
+
+      @media (max-width: 767px) {
+        position: absolute;
+        top:0;
+        right: 20px;
+        width: 50px;
+        padding: 0;
+
+        &.full {
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          padding: 40px;
+          background-color: #55555555;
+
+          div {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
 
       @media (min-width: 768px) {
         display: block;
@@ -122,11 +163,19 @@ export default {
         padding: 10px;
         border: 2px solid;
         box-shadow: 1px 1px 5px;
+        @media (max-width: 767px) {
+          width: 100%;
+          padding: 0;
+        }
 
         img {
           width: 150px;
           margin: 0 auto;
           border-radius: 10px;
+          @media (max-width: 767px) {
+            width: 100%;
+            border-radius: 0px;
+          }
         }
       }
     }

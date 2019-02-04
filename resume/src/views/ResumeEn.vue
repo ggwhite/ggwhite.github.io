@@ -125,7 +125,7 @@ export default {
           id: "exp-1",
           company: "WistronITS Corp. Stationed: Taiwan Mobile",
           position: "Senior Backend Engineer",
-          start: "Sup. 2016",
+          start: "Sep. 2016",
           end: "Present",
           description: {
             "Led 2 engineers, Developed Backend server": {

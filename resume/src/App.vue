@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" @click="closeMenu">
     <div id="nav" class="container-fluid">
       <div class="menu">
-        <a class="fa fa-bars" @click="toggleMenu"></a>
-        <section v-show="menu_display" class="mobile">
+        <a class="fa fa-bars" @click.stop.prevent="toggleMenu"></a>
+        <section v-show="menu_display" class="mobile animated fadeInDown" ref="menu">
           <router-link v-for="(text, url) in menu" :key="url" :to="url">{{ text }}</router-link>
         </section>
         <section class="desktop">
@@ -38,9 +38,11 @@ export default {
   },
   methods: {
     toggleMenu: function(){
-      console.log(this.menu_display)
       this.menu_display = !this.menu_display
-      console.log(this.menu_display)
+    },
+    closeMenu: function(){
+      this.menu_display = false
+
     },
   },
   computed: {
@@ -54,6 +56,7 @@ export default {
 
 <style lang="less">
 @import '~font-awesome/css/font-awesome.min.css';
+@import '~animate.css/animate.min.css';
 
 
 body {
